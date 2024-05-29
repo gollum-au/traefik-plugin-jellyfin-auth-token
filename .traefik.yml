@@ -1,0 +1,20 @@
+# The name of your plugin as displayed in the Plugins Catalog web UI.
+displayName: Jellyfin API headers fix
+
+# For now, `middleware` is the only type available.
+type: middleware
+
+# The import path of your plugin.
+import: github.com/gollum-au/traefik-plugin-jellyfin-auth-token
+
+# A brief description of what your plugin is doing.
+summary: Adding X-Emby-Token where missing and Authorization is used
+
+# Configuration data for your plugin.
+# This is mandatory,
+# and Plugins Catalog will try to execute the plugin with the data you provide as part of its startup validity tests.
+testData:
+  Headers:
+    Authorization: 'abcdef'
+    X-Emby-Token: ''{{Authorization}}'
+
